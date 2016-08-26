@@ -1,11 +1,11 @@
-import pygame, input, sprite, my
+import pygame, input, sprite, my, board
 from pygame.locals import *
 
 class Handler:
     '''Handles game logic'''
     def __init__(self):
-        self.TEST_sprite = sprite.Sprite(10,10,"test.PNG")
-        my.SPRITES.append(self.TEST_sprite)
+        my.board = board.Board()
+        my.board.genBoard()
     
     def update(self):
         my.input_handle.get()

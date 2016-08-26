@@ -1,7 +1,5 @@
 import pygame, my, sprite, board, input, sys, logic
 
-pygame.init()
-
 clock = pygame.time.Clock()
 screen = my.screen
 colours = my.COLOURS
@@ -14,7 +12,7 @@ while not my.GAME_EXIT:
     #Handle events
     handler.update()
     #Draw objects
-    screen.fill(colours['white'])
+    #screen.fill(colours['white'])
     for sprite in my.SPRITES:
         sprite.draw(screen)
     pygame.display.update()

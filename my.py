@@ -12,6 +12,15 @@ SPRITES = []
 WINDOWED_MODE = True
 GAME_EXIT = False
 
+CELL_SIZE = 50
+MAP_CELLS_X = 150
+MAP_CELLS_Y = 150
+MAP_WIDTH = MAP_CELLS_X * CELL_SIZE
+MAP_HEIGHT = MAP_CELLS_Y * CELL_SIZE
+
+TERRAIN = ["grass", "tussock"]
+TUSSOCK_FREQ = 75
+
 pygame.init()
 
 screenInfo = pygame.display.Info()
