@@ -5,7 +5,7 @@ class Handler:
     '''Handles game logic'''
     def __init__(self):
         my.board = board.Board()
-        my.board.genBoard()
+        my.board.gen_board()
     
     def update(self):
         my.input_handle.get()

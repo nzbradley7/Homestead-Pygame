@@ -11,9 +11,9 @@ class Board:
     IMG = loadTerrainImg(my.TERRAIN)
     
     def __init__(self):
-        self.genBaseMap()
+        self.gen_base_map()
         
-    def genBaseMap(self):
+    def gen_base_map(self):
         self.tiles = []
         for x in range(0, my.MAP_CELLS_X):
             row = []
@@ -24,7 +24,7 @@ class Board:
                 row.append(tile)
             self.tiles.append(row)
     
-    def genBoard(self):
+    def gen_board(self):
         for x in range(0, my.MAP_CELLS_X):
             for y in range(0, my.MAP_CELLS_Y):
                 my.screen.blit(Board.IMG[self.tiles[x][y]], (x * my.CELL_SIZE, y * my.CELL_SIZE))
