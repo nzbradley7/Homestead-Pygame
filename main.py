@@ -1,22 +1,16 @@
 import pygame, my, sprite, board, input, sys, logic
 
-clock = pygame.time.Clock()
-screen = my.screen
-colours = my.COLOURS
-my.input_handle = input.Input()
 handler = logic.Handler()
 
 while not my.GAME_EXIT:
     #Compute physics
-    
+    delta_time = my.CLOCK.tick(my.FPS)
     #Handle events
     handler.update()
     #Draw objects
     #screen.fill(colours['white'])
-    for sprite in my.SPRITES:
-        sprite.draw(screen)
     pygame.display.update()
-    clock.tick(60)
+    my.CLOCK.tick(my.FPS)
     
 pygame.quit()
 sys.exit()
