@@ -8,7 +8,7 @@ def loadTerrainImg(terrainNames):
     return imgs    
 
 class Board:
-    '''Map data class'''
+    '''Map generationa and data class'''
     IMG = loadTerrainImg(my.TERRAIN)
     
     def __init__(self):
@@ -36,19 +36,32 @@ class Camera:
     def __init__(self):
         self.view_area = pygame.Rect(0, 0, my.WINDOW_WIDTH, my.WINDOW_HEIGHT)
         self.focus = self.view_area.center
+        self.scale = 1
         
     def update(self):
         x, y = self.focus
         
-        #controls
-        if my.KEYS['w'] in my.input_handle.pressed_keys:
+        #cam controls
+        if (my.input_handle.get_key('w')):
             y += my.CAM_SPEED
-        if my.KEYS['s'] in my.input_handle.pressed_keys:
+        if (my.input_handle.get_key('s')):
             y -= my.CAM_SPEED       
-        if my.KEYS['a'] in my.input_handle.pressed_keys:
+        if (my.input_handle.get_key('a')):
             x += my.CAM_SPEED
-        if my.KEYS['d'] in my.input_handle.pressed_keys:
-            x -= my.CAM_SPEED                
+        if (my.input_handle.get_key('d')):
+            x -= my.CAM_SPEED
         
+        #stop viewing past map
+        if y > my.WINDOW_HEIGHT / 2:
+            y = my.WINDOW_HEIGHT / 2
+        elif y < -(my.MAP_HEIGHT - my.WINDOW_HEIGHT * 1.5):
+            y = -(my.MAP_HEIGHT - my.WINDOW_HEIGHT * 1.5)
+        if x > my.WINDOW_WIDTH / 2:
+            x = my.WINDOW_WIDTH / 2
+        elif x < -(my.MAP_WIDTH - my.WINDOW_WIDTH * 1.5):
+            x = -(my.MAP_WIDTH - my.WINDOW_WIDTH * 1.5) 
+        
+        #set focus point to the new altered values, set cam center to focus
         self.focus = (x, y)
         self.view_area.center = self.focus
+        print(self.focus)

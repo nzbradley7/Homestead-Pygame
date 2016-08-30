@@ -10,6 +10,7 @@ class Handler:
         my.input_handle = input.Input()
     
     def update(self):
+        '''makes the main loop cleaner'''
         my.input_handle.get()
         my.camera.update()
         my.screen.fill(my.COLOURS['white'])

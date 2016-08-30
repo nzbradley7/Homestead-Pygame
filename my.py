@@ -11,7 +11,9 @@ COLOURS = {'red1' : (178,27,9),
 KEYS = {'w' : pygame.locals.K_w,
         's' : pygame.locals.K_s,
         'a' : pygame.locals.K_a,
-        'd' : pygame.locals.K_d
+        'd' : pygame.locals.K_d,
+        '=' : pygame.locals.K_EQUALS,
+        '-' : pygame.locals.K_MINUS
         }
 
 SPRITES = []
@@ -22,13 +24,14 @@ GAME_EXIT = False
 CLOCK = pygame.time.Clock()
 FPS = 60
 
-CELL_SIZE = 50
+CELL_SIZE = 20
 MAP_CELLS_X = 100
 MAP_CELLS_Y = 100
 MAP_WIDTH = MAP_CELLS_X * CELL_SIZE
 MAP_HEIGHT = MAP_CELLS_Y * CELL_SIZE
 
 CAM_SPEED = 5
+ZOOM_SPEED = 0.1
 
 TERRAIN = ["grass", "tussock"]
 TUSSOCK_FREQ = 75

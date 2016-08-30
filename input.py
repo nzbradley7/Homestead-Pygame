@@ -15,3 +15,9 @@ class Input:
                 for key in self.pressed_keys:
                     if event.key == key:
                         self.pressed_keys.remove(key)
+                        
+    def get_key(self, key):
+        if my.KEYS[key] in self.pressed_keys:
+            return True
+        else:
+            return False
